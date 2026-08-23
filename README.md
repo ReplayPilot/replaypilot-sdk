@@ -34,18 +34,20 @@ grantConsent();
 
 ## Need error tracking?
 
-ReplayPilot records sessions, not exceptions. Pair it with
-[Sentry](https://sentry.io) for stack traces and alerting.
-
-```sh
-npm install @sentry/browser
-```
+ReplayPilot speaks Sentry's own envelope protocol. Point any Sentry SDK
+(`@sentry/browser`, `@sentry/node`, `@sentry/nextjs`, and the rest) at
+ReplayPilot's ingest endpoint by swapping the `dsn`, no ReplayPilot-specific
+error SDK needed:
 
 ```ts
 import * as Sentry from "@sentry/browser";
 
-Sentry.init({ dsn: "https://xxxxxxxx@sentry.replaypilot.com/1" });
+Sentry.init({ dsn: "https://pk_live_xxxxxxxx@ingest.replaypilot.com/1" });
 ```
+
+Use your project's public key in place of `pk_live_xxxxxxxx`. The trailing
+`/1` is a shape the Sentry SDK expects; ReplayPilot's ingest endpoint ignores
+its value.
 
 ## License
 
