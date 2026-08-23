@@ -37,6 +37,16 @@ grantConsent();
 ReplayPilot records sessions, not exceptions. Pair it with
 [Sentry](https://sentry.io) for stack traces and alerting.
 
+```sh
+npm install @sentry/browser
+```
+
+```ts
+import * as Sentry from "@sentry/browser";
+
+Sentry.init({ dsn: "https://xxxxxxxx@o0.ingest.sentry.io/0" });
+```
+
 ## License
 
 MIT
