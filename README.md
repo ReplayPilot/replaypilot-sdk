@@ -44,7 +44,7 @@ npm install @sentry/browser
 ```ts
 import * as Sentry from "@sentry/browser";
 
-Sentry.init({ dsn: "https://xxxxxxxx@o0.ingest.sentry.io/0" });
+Sentry.init({ dsn: "https://xxxxxxxx@sentry.replaypilot.com/1" });
 ```
 
 ## License
