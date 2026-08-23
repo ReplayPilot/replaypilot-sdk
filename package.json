@@ -1,0 +1,21 @@
+{
+	"name": "@replaypilot/sdk",
+	"version": "0.1.0",
+	"description": "Typed SDK that starts ReplayPilot session capture — embeds the hosted snippet, no manual <script> tag.",
+	"type": "module",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": ["dist"],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ReplayPilot/replaypilot-sdk"
+	},
+	"scripts": {
+		"build": "tsc",
+		"prepublishOnly": "npm run build"
+	},
+	"devDependencies": {
+		"typescript": "^5.6.0"
+	}
+}
