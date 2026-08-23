@@ -1,8 +1,6 @@
 export type ReplayPilotInitOptions = {
 	/** Project key from the ReplayPilot dashboard, e.g. pk_live_xxxxxxxx. */
 	projectId: string;
-	/** Ingest origin; override for self-hosted or local dev only. */
-	endpoint?: string;
 	/** When true, capture waits for grantConsent() before starting. */
 	requireConsent?: boolean;
 };
@@ -44,7 +42,6 @@ export function init(options: ReplayPilotInitOptions): void {
 	script.async = true;
 	script.dataset.project = options.projectId;
 	script.dataset.replaypilotSdk = "true";
-	if (options.endpoint) script.dataset.endpoint = options.endpoint;
 	if (options.requireConsent) script.dataset.requireConsent = "true";
 	script.addEventListener("load", () => {
 		ready = true;

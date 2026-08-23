@@ -1,8 +1,7 @@
 # @replaypilot/sdk
 
-Typed SDK for [ReplayPilot](https://replaypilot.com) session replay. Instead
-of hand-writing a `<script>` tag, call `init()` once and it injects the
-hosted snippet for you.
+Typed SDK for [ReplayPilot](https://replaypilot.com) session replay. Call
+`init()` once and it injects the hosted snippet, no `<script>` tag by hand.
 
 ## Install
 
@@ -33,20 +32,10 @@ init({ projectId: "pk_live_xxxxxxxx", requireConsent: true });
 grantConsent();
 ```
 
-### Self-hosted / local ingest
+## Need error tracking?
 
-```ts
-init({ projectId: "pk_live_xxxxxxxx", endpoint: "https://ingest.yourdomain.com" });
-```
-
-## What this does — and doesn't — capture
-
-This SDK covers session replay, click/heatmap data, and custom events sent
-via `track`/`identify`. It does not replace an error-tracking SDK: for
-structured error logging, stack traces, and alerting, pair it with
-[Sentry](https://sentry.io) (or a similar tool) — ReplayPilot's own error
-capture is scoped to what happens during a recorded session, not
-application-wide exception monitoring.
+ReplayPilot records sessions, not exceptions. Pair it with
+[Sentry](https://sentry.io) for stack traces and alerting.
 
 ## License
 
